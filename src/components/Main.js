@@ -4,6 +4,8 @@ import Card from "./Card.js";
 import axios from "axios";
 import "./style.css";
 import logo from "../poke-logo.jpeg";
+import about from "./about.js";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   const [pokeData, setPokeData] = useState([]);
@@ -50,7 +52,7 @@ const Main = () => {
   return (
     <>
       <nav className="navbar navbar-dark bg-dark">
-        <a className="navbar-brand poke-nav" href="#">
+        <Link className="navbar-brand poke-nav" to="/Main">
           <img
             src={logo}
             width="40"
@@ -59,8 +61,13 @@ const Main = () => {
             alt=""
           />
           &nbsp; Poke App
-        </a>
+        </Link>
+
+        <Link className="navbar-brand poke-nav" to="/about.js">
+          about
+        </Link>
       </nav>
+
       <div className="container">
         <Card pokemon={pokeData} loading={loading}></Card>
         <div className="btn-div">
